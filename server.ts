@@ -325,7 +325,11 @@ app.use(cors({ origin: process.env.CLIENT_URL || true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ status: 'ok', message: 'Live Vote backend is running' });
+  res.json({ status: 'ok', message: 'Live Vote backend is running', api: 'full' });
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Full Live Vote API is running', api: 'full' });
 });
 
 // Helper: voter key calculation for strict 1-person-1-vote
